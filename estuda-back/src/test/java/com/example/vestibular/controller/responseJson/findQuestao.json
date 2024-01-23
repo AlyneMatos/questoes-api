@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "enunciado": "enunciado",
+  "alternativas": {
+    "a": "a",
+    "b": "b",
+    "c": "c",
+    "d": "d"
+  },
+  "itemCorreto": "a",
+  "conteudoQuestao": {
+    "disciplina": "HISTORIA",
+    "assunto": "idade media",
+    "dificuldade": "facil"
+  },
+  "prova": {
+    "id": 1,
+    "banca": "uece",
+    "ano": "2022"
+  }
+}

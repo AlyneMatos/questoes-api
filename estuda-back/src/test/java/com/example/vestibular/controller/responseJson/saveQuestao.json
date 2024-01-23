@@ -1,0 +1,19 @@
+{
+  "enunciado":"Os dois povos que foram os principais responsáveis pela construção da sociedade mesopotâmica foram os",
+  "alternativas": {
+    "a" : "fenícios e os anatólios.",
+    "b" : "gregos e os romanos.",
+    "c" : "hititas e os egípcios.",
+    "d" : "sumérios e os acadianos."
+  },
+  "itemCorreto":"d",
+  "conteudoQuestao": {
+    "disciplina" : "HISTORIA",
+    "assunto" : "idade antiga",
+    "dificuldade" : "Facil"
+  },
+  "prova": {
+    "banca" : "UECE",
+    "ano" : "2020"
+  }
+}
