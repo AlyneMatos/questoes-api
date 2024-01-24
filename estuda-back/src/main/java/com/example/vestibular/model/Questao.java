@@ -16,6 +16,7 @@ import lombok.Setter;
 public class Questao extends BaseEntity<Long>{
 
     @NotBlank
+    @Column(columnDefinition = "TEXT")
     private String enunciado;
 
     private String itemCorreto;

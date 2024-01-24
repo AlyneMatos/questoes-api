@@ -37,13 +37,17 @@ public class LoadDatabase implements CommandLineRunner {
 
     private void initQuestaoData() {
 
-        Prova prova = new Prova("uece", "2022");
+        Prova prova = new Prova("UECE", "2019.2 1ª Fase");
         provaRepository.save(prova);
 
-        Questao questao = new Questao("enunciado", "a",new Alternativa("a","b","c","d"),new ConteudoQuestao(Disciplina.HISTORIA,"idade media","facil"), prova);
-        Questao questao1 = new Questao("enunciado1", "a",new Alternativa("a","b","c","d"),new ConteudoQuestao(Disciplina.HISTORIA,"idade media","facil"), prova);
-
-//        Questao questao = new Questao("enunciado", "a");
+        Questao questao = new Questao("Na Itália, após as eleições" +
+                "de 1994, o governo foi presidido por", "a",new Alternativa("Romano Prodi","Giovanni Agnell","Silvio Berlusconi","Giuliano Amato"),new ConteudoQuestao(Disciplina.HISTORIA,"Geral","facil"), prova);
+        Questao questao1 = new Questao("A independência de Moçambique ocorreu em 1975, após um " +
+                "longo processo que começou com a organização da FRELIMO " +
+                "(Frente de Libertação de Moçambique), um movimento político nacionalista que " +
+                "foi fundado em 25 de junho de 1962, com o objetivo de " +
+                "lutar pela libertação do domínio colonial", "a",
+                new Alternativa("português","inglês","francês","alemão"),new ConteudoQuestao(Disciplina.HISTORIA,"idade media","facil"), prova);
 
         questaoRepository.save(questao);
         questaoRepository.save(questao1);
