@@ -36,7 +36,7 @@ public class QuestaoController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar questões", description = "Altualiza questão da entidade.")
+    @Operation(summary = "Atualizar questões", description = "Altualizar questão da entidade.")
     public ResponseEntity<Questao> updateQuestao(@PathVariable Long id, @RequestBody @Valid Questao questao){
         questaoService.update(questao,id);
         return noContent().build();
@@ -98,9 +98,9 @@ public class QuestaoController {
         boolean isCorreto = questaoService.isAlternativaCorreta(id, item);
 
         if (isCorreto) {
-            return ResponseEntity.ok().body("A alternativa é correta!");
+            return ResponseEntity.ok().body("{\"value\": \"A alternativa é correta!\"}");
         } else {
-            return ResponseEntity.ok().body("A alternativa não é correta.");
+            return ResponseEntity.ok().body("{\"value\": \"A alternativa é incorreta!\"}");
         }
     }
 }

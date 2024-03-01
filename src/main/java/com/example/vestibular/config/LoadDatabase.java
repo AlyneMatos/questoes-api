@@ -1,9 +1,16 @@
 package com.example.vestibular.config;
 
-import com.example.vestibular.model.*;
+import com.example.vestibular.controller.AuthenticationController;
+import com.example.vestibular.model.Alternativa;
+import com.example.vestibular.model.ConteudoQuestao;
+import com.example.vestibular.model.Prova;
+import com.example.vestibular.model.Questao;
 import com.example.vestibular.model.enums.Disciplina;
+import com.example.vestibular.model.enums.UserRoles;
+import com.example.vestibular.model.user.RegisterDTO;
 import com.example.vestibular.repository.ProvaRepository;
 import com.example.vestibular.repository.QuestaoRepository;
+import com.example.vestibular.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -16,19 +23,31 @@ public class LoadDatabase implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
     private final QuestaoRepository questaoRepository;
     private final ProvaRepository provaRepository;
+    private final UserRepository userRepository;
+    private final AuthenticationController authenticationController;
 
     public LoadDatabase(QuestaoRepository questaoRepository,
-                        ProvaRepository provaRepository
+                        ProvaRepository provaRepository,
+                        UserRepository userRepository,
+                        AuthenticationController authenticationController
                        ) {
 
         this.questaoRepository = questaoRepository;
         this.provaRepository = provaRepository;
+        this.userRepository = userRepository;
+        this.authenticationController = authenticationController;
     }
 
     @Override
     public void run(String... args) throws Exception {
         initQuestaoData();
         initProvaData();
+        initUserData();
+    }
+
+    private void initUserData() {
+        RegisterDTO user = new RegisterDTO("alyne","123456", UserRoles.ADMIN);
+        authenticationController.register(user);
     }
 
     private void initProvaData() {
