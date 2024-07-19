@@ -19,17 +19,17 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(new Components()
-                        .addSecuritySchemes(securitySchemeName, new SecurityScheme().name(securitySchemeName)
-                                                                                    .type(SecurityScheme.Type.HTTP)
-                                                                                    .scheme("bearer")
-                                                                                    .bearerFormat("JWT"))
+                        .addSecuritySchemes(securitySchemeName, new SecurityScheme()
+                                .name(securitySchemeName)
+                                .type(SecurityScheme.Type.HTTP)
+                                .scheme("bearer")
+                                .bearerFormat("JWT"))
                 )
-                .info(new Info().title("PROJETO RESOLVA.COM")
-                        .contact(contact())
+                .info(new Info()
+                        .title("PROJETO RESOLVA.COM")
+                        .contact(new Contact().name("Alyne Matos").url("https://linkedin.com/in/alynematos"))
                         .description("Projeto de resolução de questões e de provas de vestibulares.")
-                        .version("1.0.0"));
-    }
-    private Contact contact() {
-        return new Contact().name("Alyne Matos").url("https://linkedin.com/in/alynematos");
+                        .version("1.0.0")
+                );
     }
 }

@@ -29,11 +29,12 @@ public class SecurityConfig {
                 .csrf(csrf->csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
-                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**","/api/questoes/swagger-ui/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/resolva.com/api/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/resolva.com/api/auth/register").permitAll()
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui.html","/api/swagger-ui.html/**", "/api/swagger-ui/index.html","/swagger-ui/**","/v3/docs/swagger-config").permitAll()
                         .anyRequest().authenticated()
                 )
+
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
